@@ -4,7 +4,7 @@ import {Icon, marker} from 'leaflet';
 import './styles/Map.css'
 import icon from './assets/pin-logo.png'
 import buildingIcon from './assets/building-pin2.png'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import axios from 'axios';
 
 const iconScale=0.03;
@@ -37,9 +37,7 @@ const Map = () => {
         const getMarkerData = async () => {
             try {
                 const res = await axios.get('http://localhost:5000/api/data');
-                console.log(res.data.data);
                 const data = res.data.data;
-                console.log(data);
                 setPositions(data);
             } catch(error) {
                 console.log(error);
@@ -61,7 +59,7 @@ const Map = () => {
                             <br/>
                             {object.latitude}, {object.latitude}
                             <br />
-                            <Link to={'/moreinfo'}>Building Info ...</Link>
+                            <Link to={`/${object.name}`}>Building Info ...</Link>
                         </Popup>
                     </Marker>
                 ))};
