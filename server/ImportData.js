@@ -21,32 +21,35 @@ class ImportData {
         
         // Convert the sheet to JSON
         const data = XLSX.utils.sheet_to_json(worksheet);
-        
-        // Populate the building container
-        try{ 
-            for (let i = 0; i < data.length; i++) {
-                const building_name = data[i].prefix;
-                const building_latitude = data[i].lat;
-                const building_longitude = data[i].long;
-        
-                Building.addBuilding(building_name, building_latitude,building_longitude);
-                
-                // Debugging console logs:
-                // console.log(building_name);
-                // console.log(building_latitude);
-                // console.log(building_longitude);
-                // console.log("Row Data:", data[i]); // Add this line to debug
-                
+
+        if (Building.buildingContainer.length===0)
+        {
+            // Populate the building container
+            try{ 
+                for (let i = 0; i < data.length; i++) {
+                    const building_name = data[i].prefix;
+                    const building_latitude = data[i].lat;
+                    const building_longitude = data[i].long;
+            
+                    Building.addBuilding(building_name, building_latitude,building_longitude);
+                    
+                    // Debugging console logs:
+                    // console.log(building_name);
+                    // console.log(building_latitude);
+                    // console.log(building_longitude);
+                    // console.log("Row Data:", data[i]); // Add this line to debug
+                    
+                }
+                console.log("IMPORTED SUCCESFULLY, (" + Building.buildingContainer.length + ") buildings with cordinates");
+            } catch (error) {
+                console.error("Failed to add building-cordinate data:", error.message);
             }
-            console.log("IMPORTED SUCCESFULLY, (" + Building.buildingContainer.length + ") buildings with cordinates");
-        } catch (error) {
-            console.error("Failed to add building-cordinate data:", error.message);
         }
+        
         
     }
   }
-
-
+  module.exports = ImportData;
 //console.log(data);
 
 // --------------------   Buildings and Building Cordinates   --------------------

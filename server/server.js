@@ -3,10 +3,15 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
+const ImportData = require('./ImportData');
+
+const Building = require('./Building');
+
 // Create an HTTP server
 const server = http.createServer((req, res) => {
-  // Handle requests
-
+    // Handle requests
+    ImportData.loadBuildings();
+    
   cors()(req, res, () => {});
 
   if (req.url === '/') {
@@ -22,7 +27,8 @@ const server = http.createServer((req, res) => {
     });
   } else if (req.url === '/api/data') {
     // Handle API requests
-    const responseData = { message: 'This is some data from the server' };
+    const data = Building.buildingContainer;
+    const responseData = { data };
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(responseData));
   } else {
