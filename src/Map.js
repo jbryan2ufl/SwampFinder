@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {Icon} from 'leaflet';
 import './styles/Map.css'
 import icon from './assets/pin-logo.png'
+import buildingIcon from './assets/building-pin2.png'
+import { Link } from 'react-router-dom'
 
 const positions = [
 [29.650251209629328	,-82.34572378594001],
@@ -108,16 +110,34 @@ const positions = [
 [29.625519468580237	,-82.35383804362118]]
 
 
+const iconScale=0.03;
 
 const customIcon = new Icon({
-    iconUrl: icon, // URL to your custom icon
-    iconSize: [32, 32], // Size of the icon
+    iconUrl: buildingIcon, // URL to your custom icon
+    iconSize: [1200*iconScale, 1600*iconScale], // Size of the icon
 });
 
+const userIcon = new Icon({
+    iconUrl: icon,
+    iconSize: [64,64],
+})
+
 const Map = () => {
+
+    const [userLocation, setUserLocation] = useState(null);
+
+    useEffect(() => {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            setUserLocation([latitude, longitude]);
+          });
+        }
+      }, []);
+
   return (
     <div>
-        <MapContainer center={positions[0]} zoom={13} style={{ height: "100vh", width: "100%" }}>
+        <MapContainer center={userLocation ? userLocation : positions[0]} zoom={13} style={{ height: "100vh", width: "100%" }}>
         <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
@@ -125,9 +145,16 @@ const Map = () => {
                     <Marker key={index} position={position} icon={customIcon}>
                         <Popup>
                             Marker {index + 1}: {position[0]}, {position[1]}
+                            <br />
+                            <Link to={'/moreinfo'}>Building Info ...</Link>
                         </Popup>
                     </Marker>
-                ))}
+                ))};
+                {userLocation && (
+                        <Marker position={userLocation} icon={userIcon}>
+                          <Popup>You are here</Popup>
+                        </Marker>
+                    )};
         </MapContainer>
     </div>
   );
