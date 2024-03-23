@@ -52,11 +52,10 @@ class ImportData {
                 // console.log(building_longitude);
                 // console.log("Row Data:", data[i]); // Add this line to debug
                 
+
             }
-            console.log("IMPORTED SUCCESFULLY, (" + Building.buildingContainer.length + ") buildings with cordinates");
-        } catch (error) {
-            console.error("Failed to add building-cordinate data:", error.message);
         }
+        
         
     }
     // Populates ALL classrooms for ALL buildings
@@ -110,8 +109,6 @@ class ImportData {
     }
         
 }
-
-
 
 //console.log(data);
 
