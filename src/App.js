@@ -1,7 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, {useEffect} from 'react';
+import axios from 'axios';
+
 function App() {
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/data')
+      .then(response => {
+        console.log(response.data.message);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
