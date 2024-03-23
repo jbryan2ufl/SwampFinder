@@ -115,11 +115,13 @@ const iconScale=0.03;
 const customIcon = new Icon({
     iconUrl: buildingIcon, // URL to your custom icon
     iconSize: [1200*iconScale, 1600*iconScale], // Size of the icon
+    iconAnchor: [600 * iconScale, 1600 * iconScale] // Anchor point at the center-bottom
 });
 
 const userIcon = new Icon({
     iconUrl: icon,
     iconSize: [64,64],
+    iconAnchor: [32, 64]
 })
 
 const Map = () => {
