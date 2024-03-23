@@ -8,8 +8,10 @@ In the project directory, you can run:
 ### `npm install`
 ### `npm install xlsx`
 
+In the `server` folder, in its own console, run:
+### `node server.js`
 
-
+In a separate console, run in the `src` folder
 ### `npm start`
 
 Runs the app in the development mode.\
