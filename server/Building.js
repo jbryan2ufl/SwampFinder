@@ -1,3 +1,5 @@
+const ClassRoom = require('./ClassRoom.js')
+
 class Building{
     constructor(name, latitude, longitude){
         this.name = name;
@@ -23,9 +25,23 @@ class Building{
         }
     }
 
-    // Method to get all buildings from the container
+    // Method to get all buildings from the container (Retreived by frontend)
     static getAllBuildings() {
         return Building.buildingContainer;
+    }
+
+    // Method to append building
+    static appendClassroomToBuilding(building_name, classroom) {
+        // Find desired building
+        const building = Building.buildingContainer.find(b => b.name === building_name);
+        
+        if (building) {
+            // Append the classroom to the building's classrooms array
+            building.classrooms.push(classroom);
+            //console.log(`Classroom added to ${building_name}`);
+        } else {
+            console.error(`Building ${building_name} not found`);
+        }
     }
 
 }
