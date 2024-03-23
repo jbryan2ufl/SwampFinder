@@ -36,7 +36,7 @@ const Map = () => {
 
         const getMarkerData = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/data');
+                const res = await axios.get('https://swamp-finder.vercel.app/api/data');
                 const data = res.data.data;
                 setPositions(data);
             } catch(error) {
