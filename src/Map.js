@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const iconScale=0.03;
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/data';
+
 const customIcon = new Icon({
     iconUrl: buildingIcon, // URL to your custom icon
     iconSize: [1200*iconScale, 1600*iconScale], // Size of the icon
@@ -36,7 +38,7 @@ const Map = () => {
 
         const getMarkerData = async () => {
             try {
-                const res = await axios.get('https://swamp-finder.vercel.app/api/data');
+                const res = await axios.get(apiUrl);
                 const data = res.data.data;
                 setPositions(data);
             } catch(error) {
