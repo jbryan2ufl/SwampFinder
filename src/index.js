@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <Map />,
   },
   {
-    path: "/moreinfo",
+    path: "/:buildingName",
     element: <MoreInfo />,
   }
 ]);
