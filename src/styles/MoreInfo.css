@@ -11,3 +11,8 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.availability-table{
+    width: 100%;
+    text-align: center;
+}
