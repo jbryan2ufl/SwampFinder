@@ -7,12 +7,12 @@
       },
       {
         "src": "src/index.js",
-        "use": "@vercel/node"
+        "use": "@vercel/static-build"
       }
     ],
     "routes": [
       { "src": "/server/(.*)", "dest": "server/$1" },
-      { "src": "/(.*)", "dest": "src/$1" }
+      { "src": "/(.*)", "dest": "src/index.js" }
     ]
   }
   
