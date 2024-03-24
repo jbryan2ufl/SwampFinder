@@ -1,5 +1,5 @@
 # Swamp Finder
-This project was designed for students and clubs to locate available rooms on campus! Have you ever tried looking for a good and quiet room to study? Swamp Finder has your back! Our program is designed to make it easy for YOU to locate the next closet available room that suits your needs. With our room availability schedule, you can identify optimal times when others will not disturb you and you won't disturb lectures! Tired of struggling to find an available room? Try Swamp Finder!
+This project was designed for students and clubs to locate available rooms on campus! Have you ever tried looking for a good and quiet room to study? Swamp Finder has your back! Our program is designed to make it easy for YOU to locate the next closet available room that suits your needs. With our room availability schedule, you can identify optimal times when others will not disturb you and you won't disturb lectures! Tired of struggling to find an available room? Try Swamp Finder Today!
 
 # In the case of local hosting.
 Make sure you have `Node Js` downloaded: https://nodejs.org/en
