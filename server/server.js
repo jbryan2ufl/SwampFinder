@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 // API endpoint to retrieve data
 app.get('/api/data', (req, res) => {
     const data = Building.buildingContainer;
+    console.log(data);
     res.status(200).json({ data });
 });
 
