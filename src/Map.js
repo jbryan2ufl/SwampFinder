@@ -58,10 +58,8 @@ const Map = () => {
             {positions && positions.map((object) => (
                     <Marker position={[object.latitude, object.longitude]} icon={customIcon}>
                         <Popup>
-                            {object.name}
+                            {object.full_name}
                             <br/>
-                            {object.latitude}, {object.latitude}
-                            <br />
                             <Link to={`/${object.name}`}>Building Info ...</Link>
                         </Popup>
                     </Marker>

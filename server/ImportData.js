@@ -46,7 +46,6 @@ class ImportData {
                 const full_name = data.at(i).building_name;
         
                 Building.addBuilding(building_name, building_latitude,building_longitude, full_name);
-                
                 // Debugging console logs:
                 // console.log(building_name);
                 // console.log(building_latitude);
