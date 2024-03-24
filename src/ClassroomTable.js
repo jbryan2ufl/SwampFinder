@@ -42,7 +42,7 @@ const ClassroomList = ({classroom}) => {
             <tbody>
               {periods.map((period, rowIndex) => (
                 <tr key={rowIndex}>
-                  <td>Period {period.id}</td>
+                  <td>Period {period.id}: {period.start}-{period.end}</td>
                   {classroom.availability_matrix && classroom.availability_matrix[rowIndex].map((cellData, columnIndex) => (
                     <td key={columnIndex} style={{ backgroundColor: cellData==="false" ? 'green' : 'red' }}>
                     </td>
@@ -54,38 +54,6 @@ const ClassroomList = ({classroom}) => {
         </div>
       </Collapse>
     </div>
-    //     <div className="classrooms">
-    //     <div className="collapse" onClick={() => setIsOpen(!isOpen)}>
-    //       {isOpen ? 'Collapse' : 'Expand'}
-    //     </div>
-    //     <Collapse isOpened={isOpen}>
-    //       <div>
-    //       <table className="availability-table">
-    //           <thead>
-    //           <tr>
-    //               <th></th>
-    //               {weekdays.map((day, index) => (
-    //               <th key={index}>{day}</th>
-    //               ))}
-    //           </tr>
-    //           </thead>
-    //           <tbody>
-    //           {periods.map((period, rowIndex) => (
-    //               <tr key={rowIndex}>
-    //               <td>Period {period.id}</td>
-    //               {
-    //                 console.log(classroom.availability_matrix)
-    //               }
-    //               {classroom.availability_matrix && classroom.availability_matrix[rowIndex].map((cellData, columnIndex) => (
-    //                   <td key={columnIndex} style={{ backgroundColor: Boolean(cellData) ? 'green' : 'red' }}></td>
-    //               ))}
-    //               </tr>
-    //           ))}
-    //           </tbody>
-    //       </table>
-    //   </div>
-    //     </Collapse>
-    //   </div>
     )};
 
 export default ClassroomList;

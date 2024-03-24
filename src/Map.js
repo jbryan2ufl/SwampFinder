@@ -19,8 +19,8 @@ const customIcon = new Icon({
 
 const userIcon = new Icon({
     iconUrl: icon,
-    iconSize: [64,64],
-    iconAnchor: [32, 64]
+    iconSize: [80,80],
+    iconAnchor: [40, 80]
 })
 
 const Map = () => {
