@@ -7,15 +7,15 @@ Make sure you have `Node Js` downloaded: https://nodejs.org/en
 ## Available Scripts
 
 In the project directory, run:
-### `npm install`
+## `npm install`
 
 
 In the `server` folder, in its own console, run:
-### `node server.js`
+## `node server.js`
 
 
 In the `src` folder, in its own separate console, run:
-### `npm start`
+## `npm start`
 
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
