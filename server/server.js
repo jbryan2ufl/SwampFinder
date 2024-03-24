@@ -20,17 +20,6 @@ if (!Building.buildingContainer) {
 // Apply CORS middleware
 app.use(cors());
 
-// Serve the index.html file
-app.get('/', (req, res) => {
-    fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
-        if (err) {
-            res.status(500).send('Internal Server Error');
-        } else {
-            res.status(200).type('text/html').send(data);
-        }
-    });
-});
-
 // API endpoint to retrieve data
 app.get('/api/data', (req, res) => {
     const data = Building.buildingContainer;
