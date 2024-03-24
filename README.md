@@ -1,24 +1,23 @@
-# Getting Started with Create React App
+# Swamp Finder
+This project was designed for students and clubs to locate available rooms on campus! Have you ever tried looking for a good and quiet room to study? Swamp Finder has your back! Our program is designed to make it easy for YOU to locate the next closet available room that suits your needs. With our room availability schedule, you can identify optimal times when others will not disturb you and you won't disturb lectures! Tired of struggling to find an available room? Try Swamp Finder!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# In the case of local hosting.
+Make sure you have `Node Js` downloaded: https://nodejs.org/en
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, run:
 ### `npm install`
-### `npm install xlsx`
 
 In the `server` folder, in its own console, run:
 ### `node server.js`
 
-In a separate console, run in the `src` folder
+In the `src` folder, in its own separate console, run:
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# For developers:
 
 ### `npm test`
 
