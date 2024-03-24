@@ -55,6 +55,9 @@ class ImportData {
                 
 
             }
+        } catch(err)
+        {
+            console.log(err);
         }
         
         

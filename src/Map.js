@@ -39,6 +39,7 @@ const Map = () => {
         const getMarkerData = async () => {
             try {
                 const res = await axios.get(apiUrl);
+                console.log(res);
                 const data = res.data.data;
                 setPositions(data);
             } catch(error) {
