@@ -1,11 +1,13 @@
 const ClassRoom = require('./ClassRoom.js')
 
 class Building{
-    constructor(name, latitude, longitude){
+    constructor(name, latitude, longitude, full_name){
         this.name = name;
+        this.full_name = full_name;
         this.classrooms = [];
         this.latitude = latitude;
         this.longitude = longitude;
+
     }
     
     // Static container for ALL buildings
