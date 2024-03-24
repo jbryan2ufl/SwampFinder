@@ -2,11 +2,9 @@ import './styles/MoreInfo.css';
 
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import Collapse from 'react-collapse';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate, Link} from 'react-router-dom';
 
 import ClassroomTable from './ClassroomTable'
-import { Class } from 'leaflet';
 
 const periods = [
     { id: '1', start:  '7:25 a.m.', end:  '8:15 a.m.' },
@@ -60,7 +58,11 @@ function getCurrentPeriod(){
 
 const MoreInfo = () => {
 
+    const handleHome = () => {
+        navigate('/');
+    };
 
+    const navigate = useNavigate();
     useEffect(() => {
 
         const fetchData = async () => {
@@ -72,6 +74,7 @@ const MoreInfo = () => {
                     }
                 });
                 console.log(response.data);
+                setBuildingFullName(response.data)
                 setClassrooms(response.data.classrooms);
                 // Assuming the response data contains building information
             } catch (error) {
@@ -90,13 +93,16 @@ const MoreInfo = () => {
 
     const {buildingName}=useParams();
     const [isOpen, setIsOpen] = useState(false);
+    const [buildingFullName, setBuildingFullName] = useState();
     const [classrooms, setClassrooms] = useState();
   return (
-    <div>
-        <h1>{buildingName}</h1>
+    <div className='back'>
+        {/* <button className="close-button" onClick={handleHome}></button> */}
+        <h1 className='title'>{buildingFullName&& buildingFullName.full_name}</h1>
         {classrooms && classrooms.map((classroom, index) => (
-        <ClassroomTable key={index} classroom={classroom} />
-      ))}
+            <ClassroomTable key={index} classroom={classroom} />
+            ))}
+            <Link className="close-button" to='/'>×</Link>
     </div>
   );
 }

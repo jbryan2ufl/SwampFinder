@@ -14,9 +14,9 @@ class Building{
     static buildingContainer = [];
 
     // Method to create and add a building to the container
-    static addBuilding(name, latitude, longitude) {
+    static addBuilding(name, latitude, longitude, full_name) {
         try {
-            const newBuilding = new Building(name, latitude, longitude);
+            const newBuilding = new Building(name, latitude, longitude, full_name);
             Building.buildingContainer.push(newBuilding);
     
             // Temporary print statement for debugging
