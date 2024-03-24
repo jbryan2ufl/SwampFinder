@@ -43,8 +43,9 @@ class ImportData {
                 const building_name = data.at(i).prefix;
                 const building_latitude = data.at(i).lat;
                 const building_longitude = data.at(i).long;
+                const full_name = data.at(i).building_name;
         
-                Building.addBuilding(building_name, building_latitude,building_longitude);
+                Building.addBuilding(building_name, building_latitude,building_longitude, full_name);
                 
                 // Debugging console logs:
                 // console.log(building_name);
@@ -101,8 +102,8 @@ class ImportData {
 
 
 
-            const classroom = new ClassRoom(building_name, timeTable)
-            Building.appendClassroomToBuilding(building_name, room_number, classroom);
+            const classroom = new ClassRoom(building_name, room_number, timeTable)
+            Building.appendClassroomToBuilding(building_name, classroom);
 
         }
         console.log("INFO: Finished to load Classrooms. Look for any errors above of failed loads above this line");
@@ -120,7 +121,8 @@ class ImportData {
 
 ImportData.loadBuildings();
 ImportData.loadClassRooms();
-
+//console.log(Building.buildingContainer);
+//console.log(Building.buildingContainer[1].classrooms[0].name);
 
 
 module.exports = ImportData;
