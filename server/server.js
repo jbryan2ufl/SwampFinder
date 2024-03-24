@@ -40,9 +40,9 @@ app.get('/api/data', (req, res) => {
 // API endpoint to get building info
 app.post('/api/getBuildingInfo', (req, res) => {
     const buildingName = req.body.params.buildingId;
-    console.log('GET BUILDING INFO:', buildingName);
-    // Add your logic to handle building info here
-    res.status(200).send('Received building name: ' + buildingName);
+    const data = Building.buildingContainer;
+    const result = data.find(item => item.name === buildingName);
+    res.status(200).send(result);
 });
 
 // Handle 404 Not Found

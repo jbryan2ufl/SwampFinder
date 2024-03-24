@@ -5,7 +5,9 @@ import axios from 'axios';
 import Collapse from 'react-collapse';
 import {useParams} from 'react-router-dom';
 
-const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+import ClassroomTable from './ClassroomTable'
+import { Class } from 'leaflet';
+
 const periods = [
     { id: '1', start:  '7:25 a.m.', end:  '8:15 a.m.' },
     { id: '2', start:  '8:30 a.m.', end:  '9:20 a.m.' },
@@ -57,6 +59,8 @@ function getCurrentPeriod(){
 }
 
 const MoreInfo = () => {
+
+
     useEffect(() => {
 
         const fetchData = async () => {
@@ -67,6 +71,8 @@ const MoreInfo = () => {
                         buildingId: buildingName
                     }
                 });
+                console.log(response.data);
+                setClassrooms(response.data.classrooms);
                 // Assuming the response data contains building information
             } catch (error) {
                 // Handle errors
@@ -80,40 +86,17 @@ const MoreInfo = () => {
 
     }, []);
 
+
+
     const {buildingName}=useParams();
     const [isOpen, setIsOpen] = useState(false);
+    const [classrooms, setClassrooms] = useState();
   return (
     <div>
         <h1>{buildingName}</h1>
-    <div className="classrooms">
-      <div className="collapse" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? 'Collapse' : 'Expand'}
-      </div>
-      <Collapse isOpened={isOpen}>
-        <div>
-        {/* <table className="availability-table">
-            <thead>
-            <tr>
-                <th></th>
-                {weekdays.map((day, index) => (
-                <th key={index}>{day}</th>
-                ))}
-            </tr>
-            </thead>
-            <tbody>
-            {periods.map((period, rowIndex) => (
-                <tr key={rowIndex}>
-                <td>Period {period.id}</td>
-                {availability[rowIndex].map((cellData, columnIndex) => (
-                    <td key={columnIndex} style={{ backgroundColor: cellData ? 'green' : 'red' }}></td>
-                ))}
-                </tr>
-            ))}
-            </tbody>
-        </table> */}
-    </div>
-      </Collapse>
-    </div>
+        {classrooms && classrooms.map((classroom, index) => (
+        <ClassroomTable key={index} classroom={classroom} />
+      ))}
     </div>
   );
 }
