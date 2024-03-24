@@ -4,7 +4,7 @@ This project was designed for students and clubs to locate available rooms on ca
 # In the case of local hosting.
 Make sure you have `Node Js` downloaded: https://nodejs.org/en
 
-## Available Scripts
+## For any user
 
 In the project directory, run: `npm install`
 
